@@ -1,6 +1,6 @@
 # BasecampApiNet
 
-This is a WIP .NET API wrapper for the BSX API for Basecamp. It returns staticly typed models and all is needed is the accountId, username and password.
+This is a WIP .NET API wrapper for the BCX API for Basecamp. It returns staticly typed models and all is needed is the accountId, username and password.
 
 ##Syntax Example##
 
