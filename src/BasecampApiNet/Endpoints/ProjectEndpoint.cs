@@ -7,6 +7,7 @@ namespace BasecampApiNet.Endpoints
 {
     public class ProjectEndpoint
     {
+        /*
         public IEnumerable<ProjectResultModel> GetAll()
         {
             //TODO: handle pagination
@@ -17,5 +18,6 @@ namespace BasecampApiNet.Endpoints
         {
             return WebHelper.Get(string.Format(Constants.BASECAMP_URL, 1, string.Format("projects/{0}.json", projectId))).Result.AsModel<ProjectResultModel>();
         }
+         * */
     }
 }

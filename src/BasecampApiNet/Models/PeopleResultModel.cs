@@ -1,12 +1,11 @@
-﻿using System;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace BasecampApiNet.Models
 {
     public class PeopleResultModel : ResultModelBase
     {
         [JsonProperty("identity_id")]
-        public int IdentityId { get; set; }
+        public int? IdentityId { get; set; }
 
         [JsonProperty("name")]
         public string Name { get; set; }
