@@ -36,7 +36,7 @@ namespace BasecampApiNet.Core
             }
         }
 
-        internal IEnumerable<T> GetList<T>(string url)
+        internal T Get<T>(string url)
         {
             lock (padlock)
             {
@@ -57,19 +57,31 @@ namespace BasecampApiNet.Core
                     //remove the current
                     _remove(url);
 
-                    //generate new value
-                    var list = response.Content.ReadAsStringAsync().Result.AsListModel<T>();
-                    
+                    var valueToCache = new object();
+
+                    var baseType = _getEnumerableType(typeof(T));
+
+                    //if enumerable
+                    if (baseType != null)
+                    {
+                        valueToCache = response.Content.ReadAsStringAsync().Result.AsListModel<T>();    
+                    }
+                    else
+                    {
+                        //must be a single result
+                        valueToCache = response.Content.ReadAsStringAsync().Result.AsModel<T>();
+                    }
+
                     //add to cache
                     _add(url, new CacheWrapperModel()
                     {
                         ETag = response.Headers.ETag.ToString(),
                         LastRequested = DateTime.UtcNow,
-                        Value = list,
+                        Value = valueToCache,
                         TypeString = typeof(T).ToString()
                     });
 
-                    return list;
+                    return (T)valueToCache;
                 }
                 else if (response.StatusCode == HttpStatusCode.NotModified)
                 {
@@ -77,7 +89,7 @@ namespace BasecampApiNet.Core
                     var wrapper = (CacheWrapperModel) _cache.Get(url);
 
                     //return the value of the cache item as an IEnumerable
-                    return (IEnumerable<T>) wrapper.Value;
+                    return (T) wrapper.Value;
                 }
                 else
                 {
@@ -98,6 +110,19 @@ namespace BasecampApiNet.Core
             }
 
             return list;
+        }
+
+        private Type _getEnumerableType(Type type)
+        {
+            foreach (Type intType in type.GetInterfaces())
+            {
+                if (intType.IsGenericType
+                    && intType.GetGenericTypeDefinition() == typeof(IEnumerable<>))
+                {
+                    return intType.GetGenericArguments()[0];
+                }
+            }
+            return null;
         }
     }
 }

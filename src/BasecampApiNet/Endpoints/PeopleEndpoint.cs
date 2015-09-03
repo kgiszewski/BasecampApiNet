@@ -15,14 +15,12 @@ namespace BasecampApiNet.Endpoints
 
         public IEnumerable<PeopleResultModel> GetAll()
         {
-            return ResponseCache.GetList<PeopleResultModel>(string.Format(Constants.BASECAMP_URL, 1, "people.json"));
+            return ResponseCache.Get<IEnumerable<PeopleResultModel>>(string.Format(Constants.BASECAMP_URL, 1, "people.json"));
         }
 
-        /*
         public PeopleResultModel Get(int personId)
         {
-            return WebHelper.Get(string.Format(Constants.BASECAMP_URL, 1, string.Format("people/{0}.json", personId))).Result.AsModel<PeopleResultModel>();
+            return ResponseCache.Get<PeopleResultModel>(string.Format(Constants.BASECAMP_URL, 1, string.Format("people/{0}.json", personId)));
         }
-         * */
     }
 }

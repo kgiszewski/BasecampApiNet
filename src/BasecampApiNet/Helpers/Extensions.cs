@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace BasecampApiNet.Helpers
@@ -13,6 +14,11 @@ namespace BasecampApiNet.Helpers
         public static T AsModel<T>(this string input)
         {
             return JsonConvert.DeserializeObject<T>(input);
+        }
+
+        public static Boolean IsEnumerable<T>(Object testedObject)
+        {
+            return (testedObject is IEnumerable<T>);
         }
     }
 }
