@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("BasecampWrapper")]
+[assembly: AssemblyTitle("BasecampApiNetUnitTests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Kevin Giszewski")]
-[assembly: AssemblyProduct("BasecampWrapper")]
+[assembly: AssemblyProduct("BasecampApiNetUnitTests")]
 [assembly: AssemblyCopyright("Copyright © Kevin Giszewski 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("f68c2e19-7b8e-4bf1-bd37-a210c653842b")]
+[assembly: Guid("482abf77-cf7f-489d-828b-c491170b942e")]
 
 // Version information for an assembly consists of the following four values:
 //

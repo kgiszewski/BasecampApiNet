@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
@@ -8,9 +7,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("BasecampConsole")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("University of Notre Dame")]
+[assembly: AssemblyCompany("Kevin Giszewski")]
 [assembly: AssemblyProduct("BasecampConsole")]
-[assembly: AssemblyCopyright("Copyright © University of Notre Dame 2015")]
+[assembly: AssemblyCopyright("Copyright © Kevin Giszewski 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

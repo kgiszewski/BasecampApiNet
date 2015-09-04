@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{770252
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasecampConsole", "src\BasecampConsole\BasecampConsole.csproj", "{0B10EF6C-6BF2-4BC9-8EB3-D06D58291303}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasecampApiNetUnitTests", "src\BasecampApiNetUnitTests\BasecampApiNetUnitTests.csproj", "{86603C4D-7CC4-4B15-9A09-D2D6A38A6B31}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,10 @@ Global
 		{0B10EF6C-6BF2-4BC9-8EB3-D06D58291303}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B10EF6C-6BF2-4BC9-8EB3-D06D58291303}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B10EF6C-6BF2-4BC9-8EB3-D06D58291303}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86603C4D-7CC4-4B15-9A09-D2D6A38A6B31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86603C4D-7CC4-4B15-9A09-D2D6A38A6B31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86603C4D-7CC4-4B15-9A09-D2D6A38A6B31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86603C4D-7CC4-4B15-9A09-D2D6A38A6B31}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
