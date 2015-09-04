@@ -30,10 +30,7 @@ namespace BasecampConsole
                 Console.WriteLine(api.People.Get(singlePerson.Id).Name);
             }
 
-            foreach (var item in BasecampApiBase.ResponseCache.CacheDump())
-            {
-                Console.WriteLine(string.Format("{0}=>{1} - {2} - {3}", item.Key, item.Value.TypeString, item.Value.LastRequested.ToString("R"), item.Value.ETag));
-            }
+            Console.WriteLine(api.CacheDump());
 
             Console.WriteLine("Press ESC to stop");
             do

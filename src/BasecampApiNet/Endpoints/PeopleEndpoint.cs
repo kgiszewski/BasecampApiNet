@@ -4,13 +4,12 @@ using BasecampApiNet.Models;
 
 namespace BasecampApiNet.Endpoints
 {
-    public class PeopleEndpoint
+    public class PeopleEndpoint : EndpointBase
     {
-        protected ResponseCache ResponseCache;
-
-        public PeopleEndpoint(ResponseCache responseCache)
+        public PeopleEndpoint(ResponseCache responseCache) 
+            : base (responseCache)
         {
-            ResponseCache = responseCache;
+            
         }
 
         public IEnumerable<PeopleResultModel> GetAll()

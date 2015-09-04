@@ -53,6 +53,7 @@
     <Compile Include="Core\BasecampApiFactoryBase.cs" />
     <Compile Include="Core\Constants.cs" />
     <Compile Include="Core\ResponseCache.cs" />
+    <Compile Include="Endpoints\EndpointBase.cs" />
     <Compile Include="Endpoints\PeopleEndpoint.cs" />
     <Compile Include="Endpoints\ProjectEndpoint.cs" />
     <Compile Include="Helpers\Extensions.cs" />

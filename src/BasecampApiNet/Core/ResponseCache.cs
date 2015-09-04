@@ -98,7 +98,7 @@ namespace BasecampApiNet.Core
             }
         }
 
-        public Dictionary<string, CacheWrapperModel> CacheDump()
+        internal Dictionary<string, CacheWrapperModel> CacheDump()
         {
             var list = new Dictionary<string, CacheWrapperModel>();
 
