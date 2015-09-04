@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Threading;
 using BasecampApiNet.Core;
 
 namespace BasecampConsole
@@ -11,18 +10,25 @@ namespace BasecampConsole
         {
             var api = new BasecampApiFactory().GetApi(args[0], args[1], args[2]);
 
+            //useful to use with Fiddler
             Console.WriteLine("Your Base64 credentials are: {0}", Base64Encode(args[1] + ":" + args[2]));
 
-            foreach (var person in api.People.GetAll().Take(2))
+            //test enumerable people
+            Console.WriteLine("Test multiple persons");
+            foreach (var x in api.People.GetAll().Take(2))
             {
-                Console.WriteLine(person.Email);
+                Console.WriteLine(x.AvatarUrl);
             }
 
-            foreach (var person in api.People.GetAll().Take(2))
+            //test cache
+            Console.WriteLine("\nTest multiple persons (testing cache this time)");
+            foreach (var x in api.People.GetAll().Take(2))
             {
-                Console.WriteLine(person.Email);
+                Console.WriteLine(x.Email);
             }
 
+            //test single person
+            Console.WriteLine("\nTest single person");
             var singlePerson = api.People.GetAll().FirstOrDefault();
 
             if (singlePerson != null)
@@ -30,8 +36,41 @@ namespace BasecampConsole
                 Console.WriteLine(api.People.Get(singlePerson.Id).Name);
             }
 
+            //dump cache
+            Console.WriteLine("\nDumping cache");
+            Console.WriteLine(api.CacheDump());
+            
+            //clear cache
+            Console.WriteLine("\nClear cache");
+            api.ClearCache();
+
+            Console.WriteLine("\nDumping cache");
             Console.WriteLine(api.CacheDump());
 
+            //test projects
+            Console.WriteLine("\nTest multiple projects");
+            var projectId = 0;
+
+            foreach (var x in api.Projects.GetAll().Take(2))
+            {
+                //grab an id for the next operation
+                projectId = x.Id;
+                Console.WriteLine(x.Name);
+            }
+
+            Console.WriteLine("\nTest single project");
+            var singleProject = api.Projects.Get(projectId);
+
+            if (singleProject != null)
+            {
+                Console.WriteLine(api.Projects.Get(singleProject.Id).Name);
+            }
+
+            //dump cache
+            Console.WriteLine("\nDumping cache");
+            Console.WriteLine(api.CacheDump());
+
+            /*
             Console.WriteLine("Press ESC to stop");
             do
             {
@@ -40,6 +79,7 @@ namespace BasecampConsole
                     // Do something
                 }
             } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
+             */
         }
 
         public static string Base64Encode(string plainText)

@@ -46,5 +46,10 @@ namespace BasecampApiNet.Core
 
             return sb.ToString();
         }
+
+        public void ClearCache()
+        {
+            ResponseCache.ClearCache();
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Runtime.Caching;
 using BasecampApiNet.Helpers;
@@ -123,6 +124,11 @@ namespace BasecampApiNet.Core
                 }
             }
             return null;
+        }
+
+        internal void ClearCache()
+        {
+            _cache.ToList().ForEach(a => _cache.Remove(a.Key));
         }
     }
 }
