@@ -25,17 +25,22 @@ This wrapper is work in progress.
 
 Caching is in place with `MemoryCache`. If wish you can wrap this project into a Singleton to ensure the cache lasts as long as the application. This may be incorporated at some point.
 
+Mostly Done:
+* Project GET
+* People GET
+* TODOs GET
+* UnitTests
+
 Priority of work:
 
+* Pagination - Presently if you have more that 25 items in a result, you'll not get items 26+.
 * GET requests
-* Pagination
 * Singleton
 * Everything else
 
 ###Everything Else###
 
 I'd like to get to these:
-* UnitTests
 * POST/PUT/DELETE verbs
 
 ##Dependencies##
