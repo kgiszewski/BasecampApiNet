@@ -21,13 +21,6 @@ namespace BasecampConsole
                 Console.WriteLine(x.AvatarUrl);
             }
 
-            //test cache
-            Console.WriteLine("\nTest multiple persons (testing cache this time)");
-            foreach (var x in api.People.GetAll().Take(2))
-            {
-                Console.WriteLine(x.Email);
-            }
-
             //test single person
             Console.WriteLine("\nTest single person");
             var singlePerson = api.People.GetAll().FirstOrDefault();
@@ -51,22 +44,14 @@ namespace BasecampConsole
                 }
             }
 
-            //dump cache
-            Console.WriteLine("\nDumping cache");
-            Console.WriteLine(api.CacheDump());
-            
-            //clear cache
-            Console.WriteLine("\nClear cache");
-            api.ClearCache();
-
-            Console.WriteLine("\nDumping cache");
-            Console.WriteLine(api.CacheDump());
-
             //test projects
             Console.WriteLine("\nTest multiple projects");
             var projectId = 0;
+            var projects = api.Projects.GetAll();
 
-            foreach (var x in api.Projects.GetAll().Take(2))
+            Console.WriteLine("Total projects: {0}", projects.Count());
+
+            foreach (var x in projects)
             {
                 //grab an id for the next operation
                 projectId = x.Id;
