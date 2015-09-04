@@ -15,6 +15,7 @@ namespace BasecampApiNet.Core
             ResponseCache = new ResponseCache();
             Projects = new ProjectEndpoint(ResponseCache);
             People = new PeopleEndpoint(ResponseCache);
+            Todos = new TodosEndpoint(ResponseCache);
         }
 
         public static NetworkCredential Credentials
@@ -32,12 +33,18 @@ namespace BasecampApiNet.Core
         protected static string Password { get; set; }
 
         internal static ResponseCache ResponseCache { get; set; }
+
         public ProjectEndpoint Projects;
+
         public PeopleEndpoint People;
+
+        public TodosEndpoint Todos;
 
         public string CacheDump()
         {
             var sb = new StringBuilder();
+
+            sb.AppendFormat("{0} items in the cache.\n", CacheCount());
 
             foreach (var item in ResponseCache.CacheDump())
             {
@@ -50,6 +57,11 @@ namespace BasecampApiNet.Core
         public void ClearCache()
         {
             ResponseCache.ClearCache();
+        }
+
+        public int CacheCount()
+        {
+            return ResponseCache.CacheCount();
         }
     }
 }

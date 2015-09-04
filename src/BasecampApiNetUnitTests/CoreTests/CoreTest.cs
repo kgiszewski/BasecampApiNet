@@ -7,16 +7,32 @@ namespace BasecampApiNetUnitTests.CoreTests
     [TestFixture]
     public class CoreTest
     {
+        static readonly CredentialModel Credentials = CredentialModel.GetCredentials();
+
+        private BasecampApiBase Api = new BasecampApiFactory().GetApi(Credentials.AccountId, Credentials.Username, Credentials.Password);
+        
         [Test]
         public void Can_Cache_Responses()
         {
-            var credentials = CredentialModel.GetCredentials();
+            var people = Api.People.GetAll();
 
-            var api = new BasecampApiFactory().GetApi(credentials.AccountId, credentials.Username, credentials.Password);
+            Assert.AreEqual(1, Api.CacheCount());
 
-            var people = api.People.GetAll();
+            Api.ClearCache();
 
-            Assert.IsNotNullOrEmpty(api.CacheDump());
+            Assert.AreEqual(0, Api.CacheCount());
+
+            var x = Api.People.GetAll();
+
+            Assert.AreEqual(1, Api.CacheCount());
+
+            var y = Api.People.GetAll();
+
+            Assert.AreEqual(1, Api.CacheCount());
+
+            var z = Api.Projects.GetAll();
+
+            Assert.AreEqual(2, Api.CacheCount());
         }
     }
 }

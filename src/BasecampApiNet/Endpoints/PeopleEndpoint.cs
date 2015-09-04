@@ -21,5 +21,10 @@ namespace BasecampApiNet.Endpoints
         {
             return ResponseCache.Get<PeopleResultModel>(string.Format(Constants.BASECAMP_URL, 1, string.Format("people/{0}.json", personId)));
         }
+
+        public IEnumerable<PersonTodoListResultModel> GetAssignedTodoList(int personId)
+        {
+            return ResponseCache.Get<IEnumerable<PersonTodoListResultModel>>(string.Format(Constants.BASECAMP_URL, 1, string.Format("people/{0}/assigned_todos.json", personId)));
+        }
     }
 }

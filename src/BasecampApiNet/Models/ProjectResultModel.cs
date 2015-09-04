@@ -34,5 +34,13 @@ namespace BasecampApiNet.Models
 
         [JsonProperty("starred")]
         public bool IsStarred { get; set; }
+
+        [JsonProperty("creator")]
+        public CreatorModel Creator { get; set; }
+
+        [JsonProperty("todolists")]
+        public ProjectTodoListModel TodoLists { get; set; }
+        
+        //TODO: add accesses, attachements, calendar_events, documents, topics, todolists
     }
 }

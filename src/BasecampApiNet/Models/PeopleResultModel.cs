@@ -24,5 +24,7 @@ namespace BasecampApiNet.Models
 
         [JsonProperty("full_size_avatar_url")]
         public string AvatarUrlFullsize { get; set; }
+
+        //TODO: add events, assigned_todos
     }
 }

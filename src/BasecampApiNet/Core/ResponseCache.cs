@@ -130,5 +130,10 @@ namespace BasecampApiNet.Core
         {
             _cache.ToList().ForEach(a => _cache.Remove(a.Key));
         }
+
+        internal int CacheCount()
+        {
+            return _cache.Count();
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using BasecampApiNet.Core;
 
 namespace BasecampConsole
@@ -34,6 +35,20 @@ namespace BasecampConsole
             if (singlePerson != null)
             {
                 Console.WriteLine(api.People.Get(singlePerson.Id).Name);
+
+                Console.WriteLine("\nTest assigned todo list for person");
+                foreach (var x in api.People.GetAssignedTodoList(singlePerson.Id))
+                {
+                    Console.WriteLine("Todo List Id: {0}", x.Id);
+                    Console.WriteLine("Creator: {0}", x.Creator.Name);
+
+                    Console.WriteLine("\nTest assigned todos on list for person");
+                    foreach (var y in x.AssignedTodos)
+                    {
+                        Console.WriteLine("{0}", y.Content);
+                        Console.WriteLine("Creator: {0}", y.Creator.Name);
+                    }
+                }
             }
 
             //dump cache
@@ -58,6 +73,19 @@ namespace BasecampConsole
                 Console.WriteLine(x.Name);
             }
 
+            Console.WriteLine("\nDumping cache");
+            Console.WriteLine(api.CacheDump());
+
+            foreach (var x in api.Projects.GetAll().Take(2))
+            {
+                //grab an id for the next operation
+                projectId = x.Id;
+                Console.WriteLine(x.Name);
+            }
+
+            Console.WriteLine("\nDumping cache");
+            Console.WriteLine(api.CacheDump());
+
             Console.WriteLine("\nTest single project");
             var singleProject = api.Projects.Get(projectId);
 
@@ -66,9 +94,19 @@ namespace BasecampConsole
                 Console.WriteLine(api.Projects.Get(singleProject.Id).Name);
             }
 
+            //todos
+            Console.WriteLine("\nTodos for project");
+            foreach (var todo in api.Todos.GetAllForProject(projectId))
+            {
+                Console.WriteLine("{0} - {1}", todo.Id, todo.Content);
+            }
+
             //dump cache
             Console.WriteLine("\nDumping cache");
             Console.WriteLine(api.CacheDump());
+
+            //success
+            Console.WriteLine("\nSUCCESS!!!!\n");
 
             /*
             Console.WriteLine("Press ESC to stop");

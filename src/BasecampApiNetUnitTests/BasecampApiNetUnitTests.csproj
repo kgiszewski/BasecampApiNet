@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CoreTests\CoreTest.cs" />
+    <Compile Include="EndpointTests\ProjectTests.cs" />
     <Compile Include="Models\CredentialModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
