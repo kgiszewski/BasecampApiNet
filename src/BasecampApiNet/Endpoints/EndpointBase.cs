@@ -1,12 +1,12 @@
-﻿using BasecampApiNet.Core;
+﻿using BasecampApiNet.Interfaces;
 
 namespace BasecampApiNet.Endpoints
 {
     public class EndpointBase
     {
-        protected ResponseCache ResponseCache;
+        protected IResponseCache ResponseCache;
 
-        public EndpointBase(ResponseCache responseCache)
+        public EndpointBase(IResponseCache responseCache)
         {
             ResponseCache = responseCache;
         }

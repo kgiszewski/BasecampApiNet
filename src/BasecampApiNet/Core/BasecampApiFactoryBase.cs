@@ -1,4 +1,6 @@
-﻿namespace BasecampApiNet.Core
+﻿using BasecampApiNet.Interfaces;
+
+namespace BasecampApiNet.Core
 {
     public abstract class BasecampApiFactoryBase
     {
