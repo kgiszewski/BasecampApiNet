@@ -9,7 +9,7 @@ using BasecampApiNet.Models;
 
 namespace BasecampApiNet.Core
 {
-    public class ResponseCache : IResponseCache
+    public class MemoryCacheResponseCache : IResponseCache
     {
         static readonly object padlock = new object();
         private MemoryCache _cache = new MemoryCache("BasecampApiCache");

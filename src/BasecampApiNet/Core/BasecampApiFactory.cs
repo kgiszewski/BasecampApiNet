@@ -4,7 +4,7 @@
     {
         public override BasecampApiBase GetApi(string accountId, string username, string password)
         {
-            return new BasecampApi(accountId, username, password, new ResponseCache());
+            return new BasecampApi(accountId, username, password, new MemoryCacheResponseCache());
         }
     }
 }
