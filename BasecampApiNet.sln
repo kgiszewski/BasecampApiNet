@@ -5,16 +5,16 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasecampApiNet", "src\BasecampApiNet\BasecampApiNet.csproj", "{E5F6CA80-DE14-449E-A579-0EEB96A82A40}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{7702522E-F45F-41E3-8C43-FE0CF251F6A9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasecampConsole", "src\BasecampConsole\BasecampConsole.csproj", "{0B10EF6C-6BF2-4BC9-8EB3-D06D58291303}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasecampApiNetUnitTests", "src\BasecampApiNetUnitTests\BasecampApiNetUnitTests.csproj", "{86603C4D-7CC4-4B15-9A09-D2D6A38A6B31}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{91920EB1-C57E-4E65-8828-D3DC3CA67E46}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\NuGet.Config = .nuget\NuGet.Config
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasecampConsole", "src\BasecampConsole\BasecampConsole.csproj", "{0B10EF6C-6BF2-4BC9-8EB3-D06D58291303}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasecampApiNetUnitTests", "src\BasecampApiNetUnitTests\BasecampApiNetUnitTests.csproj", "{86603C4D-7CC4-4B15-9A09-D2D6A38A6B31}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
