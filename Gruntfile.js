@@ -19,7 +19,7 @@ module.exports = function(grunt) {
       dll: {
         cwd: 'src/BasecampApiNet/bin/Debug/',
         src: 'BasecampApiNet.dll',
-        dest: '<%= dest %>',
+        dest: '<%= dest %>/bin',
         expand: true
       },
       
