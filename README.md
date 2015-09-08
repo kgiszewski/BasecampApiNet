@@ -50,6 +50,9 @@ Priority of work:
 * Singleton
 * Everything else
 
+##Contribute##
+Send us a pull-request and it'll likely get merged!
+
 ###Everything Else###
 
 I'd like to get to these:
