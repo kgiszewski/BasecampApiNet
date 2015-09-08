@@ -1,5 +1,7 @@
 # BasecampApiNet
 
+![Logo](https://github.com/kgiszewski/BasecampApiNet/blob/master/assets/bcxnet.png)
+
 This is a WIP .NET API wrapper for the BCX API for Basecamp. It returns staticly typed models and all is needed is the accountId, username and password.
 
 ##Install##
