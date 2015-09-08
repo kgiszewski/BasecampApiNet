@@ -59,6 +59,7 @@
     <Compile Include="Endpoints\TodosEndpoint.cs" />
     <Compile Include="Helpers\Extensions.cs" />
     <Compile Include="Helpers\WebHelper.cs" />
+    <Compile Include="Interfaces\IResponseCache.cs" />
     <Compile Include="Models\AssigneeModel.cs" />
     <Compile Include="Models\CacheWrapperModel.cs" />
     <Compile Include="Models\CreatorModel.cs" />

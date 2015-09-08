@@ -1,18 +1,19 @@
 ﻿using System.Net;
 using System.Text;
 using BasecampApiNet.Endpoints;
+using BasecampApiNet.Interfaces;
 
 namespace BasecampApiNet.Core
 {
     public abstract class BasecampApiBase
     {
-        protected BasecampApiBase(string accountId, string username, string password)
+        protected BasecampApiBase(string accountId, string username, string password, IResponseCache responseCache)
         {
             Username = username;
             Password = password;
             AccountId = accountId;
-            
-            ResponseCache = new ResponseCache();
+
+            ResponseCache = responseCache;
             Projects = new ProjectEndpoint(ResponseCache);
             People = new PeopleEndpoint(ResponseCache);
             Todos = new TodosEndpoint(ResponseCache);
@@ -30,9 +31,9 @@ namespace BasecampApiNet.Core
 
         public static string Username { get; set; }
 
-        protected static string Password { get; set; }
+        public static string Password { get; set; }
 
-        internal static ResponseCache ResponseCache { get; set; }
+        internal static IResponseCache ResponseCache { get; set; }
 
         public ProjectEndpoint Projects;
 
@@ -40,7 +41,7 @@ namespace BasecampApiNet.Core
 
         public TodosEndpoint Todos;
 
-        public string CacheDump()
+        public virtual string CacheDump()
         {
             var sb = new StringBuilder();
 

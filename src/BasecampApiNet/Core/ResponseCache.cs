@@ -4,11 +4,12 @@ using System.Linq;
 using System.Net;
 using System.Runtime.Caching;
 using BasecampApiNet.Helpers;
+using BasecampApiNet.Interfaces;
 using BasecampApiNet.Models;
 
 namespace BasecampApiNet.Core
 {
-    public class ResponseCache
+    public class MemoryCacheResponseCache : IResponseCache
     {
         static readonly object padlock = new object();
         private MemoryCache _cache = new MemoryCache("BasecampApiCache");
@@ -37,7 +38,7 @@ namespace BasecampApiNet.Core
             }
         }
 
-        internal T Get<T>(string url)
+        public T Get<T>(string url)
         {
             lock (padlock)
             {
@@ -99,7 +100,7 @@ namespace BasecampApiNet.Core
             }
         }
 
-        internal Dictionary<string, CacheWrapperModel> CacheDump()
+        public Dictionary<string, CacheWrapperModel> CacheDump()
         {
             var list = new Dictionary<string, CacheWrapperModel>();
 
@@ -126,12 +127,12 @@ namespace BasecampApiNet.Core
             return null;
         }
 
-        internal void ClearCache()
+        public void ClearCache()
         {
             _cache.ToList().ForEach(a => _cache.Remove(a.Key));
         }
 
-        internal int CacheCount()
+        public int CacheCount()
         {
             return _cache.Count();
         }

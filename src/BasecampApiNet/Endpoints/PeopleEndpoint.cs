@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using BasecampApiNet.Core;
+using BasecampApiNet.Interfaces;
 using BasecampApiNet.Models;
 
 namespace BasecampApiNet.Endpoints
 {
     public class PeopleEndpoint : EndpointBase
     {
-        public PeopleEndpoint(ResponseCache responseCache) 
+        public PeopleEndpoint(IResponseCache responseCache) 
             : base (responseCache)
         {
             
