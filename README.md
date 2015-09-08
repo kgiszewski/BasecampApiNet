@@ -2,6 +2,13 @@
 
 This is a WIP .NET API wrapper for the BCX API for Basecamp. It returns staticly typed models and all is needed is the accountId, username and password.
 
+##Install##
+Depends on `Newtonsoft.Json` so you will need that if you don't already have it.
+
+Otherwise you just need the current DLL in the release section.
+
+You can also install via NuGet: https://www.nuget.org/packages/BasecampApiNet/1.0.0
+
 ##Syntax Example##
 
 ###All Projects###
@@ -46,5 +53,3 @@ Priority of work:
 I'd like to get to these:
 * POST/PUT/DELETE verbs
 
-##Dependencies##
-Only Newtonsoft JSON.net at the moment.
