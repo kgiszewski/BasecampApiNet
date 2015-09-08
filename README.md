@@ -45,7 +45,6 @@ Mostly Done:
 
 Priority of work:
 
-* Pagination - Presently if you have more that 25 items in a result, you'll not get items 26+.
 * GET requests
 * Singleton
 * Everything else
