@@ -14,7 +14,10 @@ This is a WIP .NET API wrapper for the BCX API for Basecamp. It returns staticly
 
 ```
 //get the api
-var api = new BasecampApiFactory().GetApi("account-id", "user", "password"); //store this locally or globally
+//store this locally or globally
+var api = new BasecampApiFactory().GetApi("account-id", "user", "password"); 
+
+If the `api` variable goes out of scope, you'll lose your cache. You can wrap it in a Singleton or use a global scope to persist it.
 
 //get all projects
 api.Projects.GetAll();
