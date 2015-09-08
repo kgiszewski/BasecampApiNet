@@ -54,4 +54,4 @@ I'd like to get to these:
 * POST/PUT/DELETE verbs
 
 ##Based on BCX##
-This wrapper is based on the official BCX API located here: https://github.com/basecamp/bcx-api/tree/master/sections
+This wrapper is based on the official BCX API located here: https://github.com/basecamp/bcx-api
