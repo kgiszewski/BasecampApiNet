@@ -19,8 +19,25 @@ module.exports = function(grunt) {
       dll: {
         cwd: 'src/BasecampApiNet/bin/Debug/',
         src: 'BasecampApiNet.dll',
-        dest: '<%= dest %>/bin/',
+        dest: '<%= dest %>',
         expand: true
+      },
+      
+      nuget: {
+        files: [
+          {
+            cwd: '<%= dest %>',
+            src: ['**/*', '!bin', '!bin/*'],
+            dest: 'tmp/nuget/content',
+            expand: true
+          },
+          {
+            cwd: '<%= dest %>/bin',
+            src: ['*.dll'],
+            dest: 'tmp/nuget/lib/net40',
+            expand: true
+          }
+        ]
       }
     },
 
@@ -46,6 +63,34 @@ module.exports = function(grunt) {
       }
     },
 
+    nugetpack: {
+    	dist: {
+    		src: 'tmp/nuget/package.nuspec',
+    		dest: 'pkg'
+    	}
+    },
+
+    template: {
+    	'nuspec': {
+			'options': {
+    			'data': { 
+            name: '<%= pkgMeta.name %>',
+    				version: '<%= pkgMeta.version %>',
+            url: '<%= pkgMeta.url %>',
+            license: '<%= pkgMeta.license %>',
+            licenseUrl: '<%= pkgMeta.licenseUrl %>',
+            author: '<%= pkgMeta.author %>',
+            authorUrl: '<%= pkgMeta.authorUrl %>',
+
+    				files: [{ path: 'tmp/nuget/**', target: 'content/App_Plugins/Archetype'}]
+	    		}
+    		},
+    		'files': { 
+    			'tmp/nuget/package.nuspec': ['config/package.nuspec']
+    		}
+    	}
+    },
+
     msbuild: {
       options: {
         stdout: true,
@@ -68,4 +113,5 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('default', ['clean', 'assemblyinfo', 'msbuild:dist', 'copy:dll']);
+  grunt.registerTask('nuget',   ['clean:tmp', 'default', 'copy:nuget', 'template:nuspec', 'nugetpack', 'clean:tmp']);
 };

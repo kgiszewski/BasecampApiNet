@@ -35,6 +35,7 @@ namespace BasecampApiNet.Models
         [JsonProperty("creator")]
         public CreatorModel Creator { get; set; }
 
-        //TODO: bucket
+        [JsonProperty("bucket")]
+        public BucketModel Bucket { get; set; }
     }
 }

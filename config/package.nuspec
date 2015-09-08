@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>BasecampApiNet</id>
+        <version><%= version %></version>
+        <title><%= name %></title>
+        <authors>kgiszewski</authors>
+        <owners>kgiszewski</owners>
+        <projectUrl>https://github.com/kgiszewski/BasecampApiNet</projectUrl>
+        <description><![CDATA[Basecamp Wrapper for the BCX API]]></description>
+        <tags>umbraco</tags>
+        <iconUrl>https://github.com/kgiszewski/BasecampApiNet/tree/master/assets</iconUrl>
+        <licenseUrl><%= licenseUrl %></licenseUrl>
+        <dependencies>
+            <dependency id="Newtonsoft.Json" version="6.0.1" />
+        </dependencies>
+    </metadata>
+</package>
