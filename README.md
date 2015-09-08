@@ -26,7 +26,7 @@ You can also install via NuGet: https://www.nuget.org/packages/BasecampApiNet/1.
 //store this locally or globally
 var api = new BasecampApiFactory().GetApi("account-id", "user", "password"); 
 
-If the `api` variable goes out of scope, you'll lose your cache. You can wrap it in a Singleton or use a global scope to persist it.
+If the `api` variable goes out of scope, you'll lose your cache. You can wrap it in a static variable or use a global scope to persist it.
 
 //get all projects
 api.Projects.GetAll();
@@ -46,7 +46,6 @@ Mostly Done:
 Priority of work:
 
 * GET requests
-* Singleton
 * Everything else
 
 ##Contribute##
