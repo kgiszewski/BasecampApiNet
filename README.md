@@ -74,3 +74,14 @@ I'd like to get to these:
 
 ##Based on BCX##
 This wrapper is based on the official BCX API located here: https://github.com/basecamp/bcx-api
+
+##Grunt##
+This repo uses Grunt only for the purposes of building the Nuget releases and copying the DLL to a test application while editing the code.
+
+To install Grunt you'll need NodeJs installed on your dev machine then run: `npm install`
+
+You can then run the following if you wish:
+
+Copy to a `/bin` folder:  `grunt --target="c:/dev/somedestination"`
+
+Build Nuget package that outputs to your local `pkg` directory: `grunt nuget`
