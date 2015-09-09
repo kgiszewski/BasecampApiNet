@@ -61,7 +61,7 @@ Mostly Done:
 
 Priority of work:
 
-* GET requests
+* GET requests (Events first)
 * Everything else
 
 ##Contribute##
