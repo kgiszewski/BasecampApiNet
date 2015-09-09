@@ -25,11 +25,27 @@ You can also install via NuGet: https://www.nuget.org/packages/BasecampApiNet/1.
 //get the api
 //store this locally or globally
 var api = new BasecampApiFactory().GetApi("account-id", "user", "password"); 
-
+```
 If the `api` variable goes out of scope, you'll lose your cache. You can wrap it in a static variable or use a global scope to persist it.
 
-//get all projects
-api.Projects.GetAll();
+Simply using it in a class with a static reference should do:
+```
+using BasecampApiNet.Core;
+
+namespace MyNamespace
+{
+    public class MyBasecampApi
+    {
+        public static BasecampApiBase Api = new BasecampApiFactory().GetApi("12345", "foo", "bar");
+    }
+}
+
+```
+Then you can simply reference the static variable in your code:
+
+```
+MyBasecampApi.Api.Projects.GetAll();
+
 ```
 
 ##WIP##
