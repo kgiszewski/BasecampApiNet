@@ -54,8 +54,9 @@
     <Compile Include="Core\Constants.cs" />
     <Compile Include="Core\ResponseCache.cs" />
     <Compile Include="Endpoints\EndpointBase.cs" />
+    <Compile Include="Endpoints\EventsEndpoint.cs" />
     <Compile Include="Endpoints\PeopleEndpoint.cs" />
-    <Compile Include="Endpoints\ProjectEndpoint.cs" />
+    <Compile Include="Endpoints\ProjectsEndpoint.cs" />
     <Compile Include="Endpoints\TodosEndpoint.cs" />
     <Compile Include="Helpers\Extensions.cs" />
     <Compile Include="Helpers\WebHelper.cs" />
@@ -64,6 +65,8 @@
     <Compile Include="Models\BucketModel.cs" />
     <Compile Include="Models\CacheWrapperModel.cs" />
     <Compile Include="Models\CreatorModel.cs" />
+    <Compile Include="Models\EventableModel.cs" />
+    <Compile Include="Models\EventResultModel.cs" />
     <Compile Include="Models\PeopleResultModel.cs" />
     <Compile Include="Models\PersonTodoListResultModel.cs" />
     <Compile Include="Models\ProjectResultModel.cs" />
@@ -72,7 +75,6 @@
     <Compile Include="Models\TodoResultModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

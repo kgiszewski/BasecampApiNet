@@ -20,5 +20,10 @@ namespace BasecampApiNet.Helpers
         {
             return (testedObject is IEnumerable<T>);
         }
+
+        public static string ToStandardDate(this DateTime date)
+        {
+            return date.ToString("o").Replace("+", "%2B");
+        }
     }
 }

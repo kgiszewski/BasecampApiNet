@@ -14,9 +14,10 @@ namespace BasecampApiNet.Core
             AccountId = accountId;
 
             ResponseCache = responseCache;
-            Projects = new ProjectEndpoint(ResponseCache);
+            Projects = new ProjectsEndpoint(ResponseCache);
             People = new PeopleEndpoint(ResponseCache);
             Todos = new TodosEndpoint(ResponseCache);
+            Events = new EventsEndpoint(ResponseCache);
         }
 
         public static NetworkCredential Credentials
@@ -35,11 +36,13 @@ namespace BasecampApiNet.Core
 
         internal static IResponseCache ResponseCache { get; set; }
 
-        public ProjectEndpoint Projects;
+        public ProjectsEndpoint Projects;
 
         public PeopleEndpoint People;
 
         public TodosEndpoint Todos;
+
+        public EventsEndpoint Events;
 
         public virtual string CacheDump()
         {
@@ -49,7 +52,7 @@ namespace BasecampApiNet.Core
 
             foreach (var item in ResponseCache.CacheDump())
             {
-                sb.AppendFormat(string.Format("{0}=>{1} - {2} - {3}\n", item.Key, item.Value.TypeString, item.Value.LastRequested.ToString("R"), item.Value.ETag));
+                sb.AppendFormat("{0}=>{1} - {2} - {3}\n", item.Key, item.Value.TypeString, item.Value.LastRequested.ToString("R"), item.Value.ETag);
             }
 
             return sb.ToString();

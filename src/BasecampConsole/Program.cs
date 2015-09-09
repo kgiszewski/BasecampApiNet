@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using BasecampApiNet.Core;
 
 namespace BasecampConsole
@@ -13,6 +12,11 @@ namespace BasecampConsole
 
             //useful to use with Fiddler
             Console.WriteLine("Your Base64 credentials are: {0}", Base64Encode(args[1] + ":" + args[2]));
+
+            if (api == null)
+            {
+                throw new Exception("API not initialized!");
+            }
 
             //test enumerable people
             Console.WriteLine("Test multiple persons");
@@ -81,9 +85,28 @@ namespace BasecampConsole
 
             //todos
             Console.WriteLine("\nTodos for project");
-            foreach (var todo in api.Todos.GetAllForProject(projectId))
+
+            foreach (var todo in api.Projects.GetTodos(projectId))
             {
                 Console.WriteLine("{0} - {1}", todo.Id, todo.Content);
+            }
+
+            //events
+            Console.WriteLine("\nEvents");
+
+            foreach (var _event in api.Events.GetAll(DateTime.UtcNow.AddDays(-20)))
+            {
+                Console.WriteLine("\n{0}", _event.Summary);
+            }
+
+            foreach (var _event in api.Projects.GetEvents(projectId, DateTime.UtcNow.AddDays(-20)))
+            {
+                Console.WriteLine("\n{0}", _event.Summary);
+            }
+
+            foreach (var _event in api.People.GetEvents(singlePerson.Id, DateTime.UtcNow.AddDays(-20)))
+            {
+                Console.WriteLine("\n{0}", _event.Summary);
             }
 
             //dump cache
@@ -92,23 +115,12 @@ namespace BasecampConsole
 
             //success
             Console.WriteLine("\nSUCCESS!!!!\n");
-
-            /*
-            Console.WriteLine("Press ESC to stop");
-            do
-            {
-                while (!Console.KeyAvailable)
-                {
-                    // Do something
-                }
-            } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
-             */
         }
 
         public static string Base64Encode(string plainText)
         {
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
-            return System.Convert.ToBase64String(plainTextBytes);
+            return Convert.ToBase64String(plainTextBytes);
         }
     }
 }

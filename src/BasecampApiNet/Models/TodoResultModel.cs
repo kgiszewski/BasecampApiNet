@@ -32,13 +32,12 @@ namespace BasecampApiNet.Models
         [JsonProperty("trashed")]
         public bool IsTrashed { get; set; }
 
-        [JsonProperty("todolist")]
-        public string TodoList { get; set; }
-
         [JsonProperty("creator")]
         public CreatorModel Creator { get; set; }
 
         [JsonProperty("assignee")]
         public AssigneeModel AssigneeModel { get; set; }
+
+        //TODO: add todolist
     }
 }

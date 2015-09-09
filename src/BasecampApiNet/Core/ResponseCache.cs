@@ -54,6 +54,8 @@ namespace BasecampApiNet.Core
 
                 var response = WebHelper.Get(url, eTag).Result;
 
+                Console.WriteLine("\n{0}\n{1}", url, response);
+
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
                     //remove the current
@@ -63,15 +65,19 @@ namespace BasecampApiNet.Core
 
                     var baseType = _getEnumerableType(typeof(T));
 
+                    var responseString = response.Content.ReadAsStringAsync().Result;
+
+                    Console.WriteLine("\n{0}", responseString);
+
                     //if enumerable
                     if (baseType != null)
                     {
-                        valueToCache = response.Content.ReadAsStringAsync().Result.AsListModel<T>();    
+                        valueToCache = responseString.AsListModel<T>();    
                     }
                     else
                     {
                         //must be a single result
-                        valueToCache = response.Content.ReadAsStringAsync().Result.AsModel<T>();
+                        valueToCache = responseString.AsModel<T>();
                     }
 
                     //add to cache

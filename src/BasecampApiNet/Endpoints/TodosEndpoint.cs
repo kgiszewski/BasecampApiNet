@@ -12,10 +12,5 @@ namespace BasecampApiNet.Endpoints
         {
             
         }
-
-        public IEnumerable<TodoResultModel> GetAllForProject(int projectId)
-        {
-            return ResponseCache.Get<IEnumerable<TodoResultModel>>(string.Format(Constants.BASECAMP_URL, 1, string.Format("projects/{0}/todos.json", projectId)));
-        }
     }
 }
