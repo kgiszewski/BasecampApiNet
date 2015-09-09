@@ -26,9 +26,9 @@ You can also install via NuGet: https://www.nuget.org/packages/BasecampApiNet/1.
 //store this locally or globally
 var api = new BasecampApiFactory().GetApi("account-id", "user", "password"); 
 ```
-If the `api` variable goes out of scope, you'll lose your cache. You can wrap it in a static variable or use a global scope to persist it.
+If the `api` variable goes out of scope, you'll lose your cache. You can wrap it in a static variable or use a singleton to persist it.
 
-Simply using it in a class with a static reference should do:
+Simply using it in a class with a static reference will persist the cache for the life of your application:
 ```
 using BasecampApiNet.Core;
 
